@@ -26,15 +26,22 @@ export default function App() {
     };
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{ flexDirection: "row", width: "100%", justifyContent: "center", alignItems: "center" }}>
-                <TextInput onChangeText={setInput} style={styles.input} placeholder="Please, inform your pockemon" />
-                <Pressable onPress={handleApi} style={styles.pressable}>
+            <View testID="View_Container_Search" style={{ flexDirection: "row", width: "100%", justifyContent: "center", alignItems: "center" }}>
+                <TextInput
+                    value={input}
+                    testID="TextInput_Search"
+                    onChangeText={setInput}
+                    style={styles.input}
+                    placeholder="Please, inform your pockemon"
+                />
+                <Pressable testID="Pressable_Search" onPress={handleApi} style={styles.pressable}>
                     <Text style={styles.text}>Pesquisar</Text>
                 </Pressable>
             </View>
             {error && <Text style={styles.textHeader}>Erro na consulta</Text>}
             {data?.length > 0 && (
                 <FlatList
+                testID="Flatlist_Container"
                     style={styles.flatlistContainer}
                     data={data}
                     ListHeaderComponent={<Text style={styles.textHeader}>Lista das habilidades</Text>}
