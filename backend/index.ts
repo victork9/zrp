@@ -24,7 +24,7 @@ const sortResponse = (response: IResponse[]) => {
 
 app.get("/:pockeName", (req, res) => {
     const { pockeName } = req.params;
-    console.log("wwpockeName",pockeName)
+    
     api.get<{ abilities: IResponse[] }>(`${API_URL}/${pockeName}`)
         .then(({ data }) => res.json(sortResponse(data.abilities)))
         .catch((error) => {
